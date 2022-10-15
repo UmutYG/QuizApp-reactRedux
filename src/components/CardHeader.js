@@ -5,6 +5,7 @@ import QuizAppContext from './context/quizapp-context';
 
 const CardHeader = () => {
     const {question} = useContext(QuizAppContext);
+    console.log(question);
     return (
         <>
             <div className='card-body'>
