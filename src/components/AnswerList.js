@@ -1,10 +1,11 @@
 
-import React from 'react'
+import React, { Children } from 'react'
 import { useContext } from 'react'
 import { Answer } from './Answer'
-import QuizAppContext from './context/quizapp-context'
-export const AnswerList = () => {
-  const {correctAnswer, wrongAnswers} = useContext(QuizAppContext);
+import {connect} from 'react-redux'
+
+export const AnswerList = (props) => {
+  const {correctAnswer, wrongAnswers} = props;
   const answers = [...wrongAnswers, correctAnswer];
 
   return (
@@ -18,3 +19,12 @@ export const AnswerList = () => {
     </ul>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    correctAnswer : state.correctAnswer,
+    wrongAnswers : state.wrongAnswers
+  }
+}
+
+export default connect(mapStateToProps)(AnswerList);

@@ -1,16 +1,17 @@
-import { AnswerList } from "./components/AnswerList";
+import AnswerList  from "./components/AnswerList";
 import CardHeader from "./components/CardHeader";
+import { connect } from 'react-redux'
 
-import QuizAppState from "./components/states/QuizAppState";
-
-function QuizApp() {
+function QuizApp(props) {
   return (
-        <QuizAppState>
+       <>
           <CardHeader/>
           <AnswerList/>
-        </QuizAppState>
-      
+            {/* <TimeStamp/> */}
+        </>
   );
 }
 
-export default QuizApp;
+
+
+export default connect()(QuizApp);

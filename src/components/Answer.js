@@ -1,21 +1,30 @@
 import React from 'react'
 import { useState } from 'react';
 import { useContext } from 'react'
-import QuizAppContext from './context/quizapp-context'
 
+import {connect } from 'react-redux'
 
 
 export const Answer = (props) => {
 
-  const {correctAnswer} = useContext(QuizAppContext);
   
   const [isTrue, setIsTrue] = useState("none");
   const [disabled, setDisabled] = useState("none");
 
-  const checkAnswer = (ans) => ans == correctAnswer ?
-  (setIsTrue("correct"), document.querySelectorAll(".option").forEach((o)=>o.classList.add("disabled")))
-  :
-  (setIsTrue("wrong") ,document.querySelectorAll(".option").forEach((o)=>o.classList.add("disabled")));
+  const checkAnswer = (ans) => {
+    if(ans === props.correctAnswer)
+    {
+      setIsTrue("correct");
+      document.querySelectorAll(".option").forEach((o)=>o.classList.add("disabled"));
+      document.querySelector(".button-next").style.display = "block";
+    }
+    else
+    {
+      setIsTrue("wrong");
+      document.querySelectorAll(".option").forEach((o)=>o.classList.add("disabled"));
+      document.querySelector(".button-next").style.display = "block";
+    }
+  }
   
   
   return (
@@ -29,5 +38,13 @@ export const Answer = (props) => {
       </li>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    correctAnswer : state.correctAnswer
+  }
+}
+
+export default connect(mapStateToProps)(Answer);
 
 
