@@ -1,0 +1,66 @@
+body {
+    background-color: bisque;
+  }
+  .card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      height: 400px;
+      border-radius: 10px;
+      
+  }
+   
+  .card-body
+  {
+    display: flex;
+    
+    justify-content: space-between;
+  }
+  .card-text
+  {
+    height: 10rem;
+  }
+
+  .option
+  {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .option:hover
+  {
+    background-color: bisque;
+  }
+
+  .correct
+  {
+    background-color: greenyellow !important;
+  }
+  .wrong
+  {
+    background-color: red !important;
+  }
+
+  .disabled
+  {
+    pointer-events: none;
+  }
+
+  .button-next
+  {
+    display: none;
+
+  }
+  .time-bar
+  {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: block;
+    font-size: 20px;
+  }
+
+  
+
