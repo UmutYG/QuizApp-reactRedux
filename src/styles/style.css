@@ -45,7 +45,7 @@ body {
 
   .disabled
   {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 
   .button-next

@@ -1,7 +1,7 @@
 import { AnswerList } from "./components/AnswerList";
 import CardHeader from "./components/CardHeader";
 
-import QuizAppState from "./components/context/reducers/QuizAppReducer";
+import QuizAppState from "./components/states/QuizAppState";
 
 function QuizApp() {
   return (
